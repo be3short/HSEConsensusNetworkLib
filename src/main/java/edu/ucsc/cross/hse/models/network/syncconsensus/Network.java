@@ -2,6 +2,9 @@ package edu.ucsc.cross.hse.models.network.syncconsensus;
 
 import Jama.Matrix;
 import com.be3short.data.cloning.ObjectCloner;
+import edu.ucsc.cross.hse.model.firefly.simple.FireFlyProperties;
+import edu.ucsc.cross.hse.model.firefly.simple.FireFlySwarmState;
+import edu.ucsc.cross.hse.model.firefly.simple.FireFlySystem;
 import edu.ucsc.cross.hse2.core.exe.operator.HybridEnvironment;
 import edu.ucsc.cross.hse2.core.obj.structure.HybridSystem;
 import java.util.ArrayList;
@@ -82,7 +85,7 @@ public class Network extends HybridSystem<NetworkState>
 			node.setName("N" + i);
 			nodez.add(node);
 		}
-		NetworkParams paramz = NetworkParams.getWattsStrogatzParams(-.4, .3, .3, 1.0, nodez.size());
+		NetworkParams paramz = NetworkParams.getWattsStrogatzParams(-.4, .3, 0.7, 1.5, nodez.size());
 		NetworkState state = new NetworkState(nodez, .5);
 		Network network = new Network(state, paramz);
 		return network;
@@ -91,19 +94,22 @@ public class Network extends HybridSystem<NetworkState>
 
 	public static void main(String args[])
 	{
-		Integer randNum = 900;
+		FireFlyProperties p = new FireFlyProperties(1.0, .01);
+		FireFlySwarmState s = FireFlySwarmState.getRandomizedSwarm(100, p);
+		FireFlySystem sys = new FireFlySystem(s, p);
+		Integer randNum = 200;
 		try
 		{
 			randNum = Integer.valueOf(args[0]);
 		} catch (Exception e)
 		{
 		}
-		Network net = generateRandomNetwork(randNum, 10.0, 1.0);
+		Network net = generateRandomNetwork(randNum, 10.0, 3.0);
 		HybridEnvironment env = new HybridEnvironment();
 
-		env.addContent(net);
+		env.addContent(net, sys);
 		// env.save("data/Net");
-		// env.settings().getExecutionParameters().simulationDuration = 200.0;
+		env.settings().getExecutionParameters().simulationDuration = 20.0;
 		// env.settings().getExecutionParameters().maximumJumps = 500;
 		env.start(200.0, true);
 		// env.save("data/Stocks");

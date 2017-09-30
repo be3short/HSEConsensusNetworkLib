@@ -1,23 +1,10 @@
 <map>
   <entry>
-    <java-class>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</java-class>
+    <java-class>edu.ucsc.cross.hse.model.ListElement</java-class>
     <list>
       <field>
-        <name>stateValue</name>
-        <clazz>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</clazz>
-      </field>
-      <field>
-        <name>controllerValue</name>
-        <clazz>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</clazz>
-      </field>
-    </list>
-  </entry>
-  <entry>
-    <java-class>edu.ucsc.cross.hse.model.firefly.simple.FireFlyState</java-class>
-    <list>
-      <field>
-        <name>glowIntensity</name>
-        <clazz>edu.ucsc.cross.hse.model.firefly.simple.FireFlyState</clazz>
+        <name>elementValue</name>
+        <clazz>edu.ucsc.cross.hse.model.ListElement</clazz>
       </field>
     </list>
   </entry>
@@ -60,20 +47,20 @@
     </list>
   </entry>
   <entry>
+    <java-class>edu.ucsc.cross.hse.model.firefly.simple.FireFlyState</java-class>
+    <list>
+      <field>
+        <name>glowIntensity</name>
+        <clazz>edu.ucsc.cross.hse.model.firefly.simple.FireFlyState</clazz>
+      </field>
+    </list>
+  </entry>
+  <entry>
     <java-class>edu.ucsc.cross.hse.model.firefly.simple.FireFlySwarmState</java-class>
     <list>
       <field>
         <name>fireFlies</name>
         <clazz>edu.ucsc.cross.hse.model.firefly.simple.FireFlySwarmState</clazz>
-      </field>
-    </list>
-  </entry>
-  <entry>
-    <java-class>edu.ucsc.cross.hse.model.ListElement</java-class>
-    <list>
-      <field>
-        <name>elementValue</name>
-        <clazz>edu.ucsc.cross.hse.model.ListElement</clazz>
       </field>
     </list>
   </entry>
@@ -100,6 +87,19 @@
       <field>
         <name>eventTimer</name>
         <clazz>edu.ucsc.cross.hse.models.network.syncconsensus.NetworkState</clazz>
+      </field>
+    </list>
+  </entry>
+  <entry>
+    <java-class>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</java-class>
+    <list>
+      <field>
+        <name>stateValue</name>
+        <clazz>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</clazz>
+      </field>
+      <field>
+        <name>controllerValue</name>
+        <clazz>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</clazz>
       </field>
     </list>
   </entry>

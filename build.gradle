@@ -70,12 +70,14 @@ compile group: 'org.jfree', name: 'jfreesvg', version: '3.2'
     testImplementation 'junit:junit:4.12'
     compile 'com.github.be3short:DataManagementToolbox:0.1.0'
       // compile 'com.github.be3short:DynamicLogger:-SNAPSHOT'
-     compile 'com.github.be3short:HSECoreDev:-SNAPSHOT'
+  //   compile 'com.github.be3short:HSECoreDev:-SNAPSHOT'
    
 
     //compile 'org.slf4j:slf4j-simple:1.7.21'
  
       compile group: 'gov.nist.math', name: 'jama', version: '1.0.2'
+// https://mvnrepository.com/artifact/net.openhft/compiler
+compile group: 'net.openhft', name: 'compiler', version: '2.3.0'
 
 
  compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
