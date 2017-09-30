@@ -1,0 +1,27 @@
+<map>
+  <entry>
+    <java-class>edu.ucsc.cross.hse2.core.exe.operator.SystemOperator</java-class>
+    <map>
+      <entry>
+        <string>checkDomain</string>
+        <boolean>true</boolean>
+      </entry>
+      <entry>
+        <string>clearChangeValues</string>
+        <boolean>true</boolean>
+      </entry>
+      <entry>
+        <string>storeChangeValues</string>
+        <boolean>true</boolean>
+      </entry>
+      <entry>
+        <string>storeJumpValues</string>
+        <boolean>true</boolean>
+      </entry>
+    </map>
+  </entry>
+  <entry>
+    <java-class>edu.ucsc.cross.hse2.core.exe.operator.HybridEnvironment</java-class>
+    <map/>
+  </entry>
+</map>
