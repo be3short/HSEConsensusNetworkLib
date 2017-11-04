@@ -1,10 +1,9 @@
 package edu.ucsc.cross.hse.models.network.syncconsensus;
 
-import Jama.Matrix;
-import edu.ucsc.cross.hse2.core.obj.structure.State;
+import edu.ucsc.cross.hse.core.object.Objects;
 import java.util.ArrayList;
 
-public class NetworkState extends State
+public class NetworkState extends Objects
 {
 
 	public ArrayList<NodeState> nodes;

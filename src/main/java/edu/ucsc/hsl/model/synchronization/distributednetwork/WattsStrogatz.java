@@ -31,7 +31,7 @@ public class WattsStrogatz
 			System.out.println(e.a + " , " + e.b);
 		}
 		Matrix matrix = new Matrix(matrixArray);
-		matrix.print(10, 0);
+		// matrix.print(10, 0);
 		return matrix;
 	}
 
@@ -48,7 +48,7 @@ public class WattsStrogatz
 		{
 			System.out.println(e.a + " , " + e.b);
 		}
-		System.out.println(g.edgeSet().size());
+		// System.out.println(g.edgeSet().size());
 		Matrix m = new Matrix(1, 2);
 
 	}

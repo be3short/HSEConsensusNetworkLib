@@ -1,0 +1,14 @@
+[06:56:43.948][82/1963][info] Environment Started
+[06:56:44.032][92/1963][info] status: 0.04%  complete : sim time = 0.01 : jumps = 0
+[06:56:44.816][400/1963][info] status: 10.01%  complete : sim time = 2.00 : jumps = 3
+[06:56:45.329][200/1963][info] status: 20.00%  complete : sim time = 4.00 : jumps = 5
+[06:56:45.748][505/1963][info] status: 30.00%  complete : sim time = 6.00 : jumps = 8
+[06:56:46.141][306/1963][info] status: 40.00%  complete : sim time = 8.00 : jumps = 11
+[06:56:46.539][102/1963][info] status: 50.02%  complete : sim time = 10.00 : jumps = 13
+[06:56:46.849][410/1963][info] status: 60.00%  complete : sim time = 12.00 : jumps = 16
+[06:56:47.145][202/1963][info] status: 70.02%  complete : sim time = 14.00 : jumps = 19
+[06:56:47.418][501/1963][info] status: 80.03%  complete : sim time = 16.01 : jumps = 21
+[06:56:47.661][295/1963][info] status: 90.04%  complete : sim time = 18.01 : jumps = 24
+[06:56:47.979][96/2044][info] status: 100.00%  complete : sim time = 20.00 : jumps = 27
+[06:56:47.979][96/2044][info] Environment Stopped
+[06:56:48.120][126/2044][info] Environment saved: /Users/beshort/Dropbox/Work/Code/HSEConsensusNetworkLib/output/[11_4_17_06_56_43_919]/environment

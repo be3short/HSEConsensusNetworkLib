@@ -1,14 +1,14 @@
-package edu.ucsc.cross.hse.models.network.syncconsensus;
+package edu.ucsc.cross.hse.consensus.sync;
 
 import edu.ucsc.cross.hse.core.object.Objects;
 
-public class NodeState extends Objects
+public class NetworkAgentState extends Objects
 {
 
 	public double stateValue;
 	public double controllerValue;
 
-	public NodeState()
+	public NetworkAgentState()
 	{
 
 		stateValue = 0.0;
@@ -16,10 +16,11 @@ public class NodeState extends Objects
 
 	}
 
-	public NodeState(Double state_val, Double control_val)
+	public NetworkAgentState(Double state_val, Double control_val)
 	{
 		stateValue = state_val;
 		controllerValue = control_val;
 
 	}
+
 }

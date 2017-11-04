@@ -1,52 +1,5 @@
 <map>
   <entry>
-    <java-class>edu.ucsc.cross.hse.model.ListElement</java-class>
-    <list>
-      <field>
-        <name>elementValue</name>
-        <clazz>edu.ucsc.cross.hse.model.ListElement</clazz>
-      </field>
-    </list>
-  </entry>
-  <entry>
-    <java-class>edu.ucsc.cross.hse.model.DataHoldState</java-class>
-    <list>
-      <field>
-        <name>refreshTime</name>
-        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
-      </field>
-      <field>
-        <name>state</name>
-        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
-      </field>
-      <field>
-        <name>doubleState</name>
-        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
-      </field>
-      <field>
-        <name>holdVal</name>
-        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
-      </field>
-    </list>
-  </entry>
-  <entry>
-    <java-class>edu.ucsc.cross.hse.model.ListState</java-class>
-    <list>
-      <field>
-        <name>listValueTimer</name>
-        <clazz>edu.ucsc.cross.hse.model.ListState</clazz>
-      </field>
-      <field>
-        <name>listEvents</name>
-        <clazz>edu.ucsc.cross.hse.model.ListState</clazz>
-      </field>
-      <field>
-        <name>listElements</name>
-        <clazz>edu.ucsc.cross.hse.model.ListState</clazz>
-      </field>
-    </list>
-  </entry>
-  <entry>
     <java-class>edu.ucsc.cross.hse.model.firefly.simple.FireFlyState</java-class>
     <list>
       <field>
@@ -61,6 +14,19 @@
       <field>
         <name>fireFlies</name>
         <clazz>edu.ucsc.cross.hse.model.firefly.simple.FireFlySwarmState</clazz>
+      </field>
+    </list>
+  </entry>
+  <entry>
+    <java-class>edu.ucsc.cross.hse.example.datagenerator.DataGeneratorState</java-class>
+    <list>
+      <field>
+        <name>dataGenerated</name>
+        <clazz>edu.ucsc.cross.hse.example.datagenerator.DataGeneratorState</clazz>
+      </field>
+      <field>
+        <name>timeToNextData</name>
+        <clazz>edu.ucsc.cross.hse.example.datagenerator.DataGeneratorState</clazz>
       </field>
     </list>
   </entry>
@@ -91,6 +57,32 @@
     </list>
   </entry>
   <entry>
+    <java-class>edu.ucsc.cross.hse.model.ListElement</java-class>
+    <list>
+      <field>
+        <name>elementValue</name>
+        <clazz>edu.ucsc.cross.hse.model.ListElement</clazz>
+      </field>
+    </list>
+  </entry>
+  <entry>
+    <java-class>edu.ucsc.cross.hse.model.ListState</java-class>
+    <list>
+      <field>
+        <name>listValueTimer</name>
+        <clazz>edu.ucsc.cross.hse.model.ListState</clazz>
+      </field>
+      <field>
+        <name>listEvents</name>
+        <clazz>edu.ucsc.cross.hse.model.ListState</clazz>
+      </field>
+      <field>
+        <name>listElements</name>
+        <clazz>edu.ucsc.cross.hse.model.ListState</clazz>
+      </field>
+    </list>
+  </entry>
+  <entry>
     <java-class>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</java-class>
     <list>
       <field>
@@ -100,6 +92,27 @@
       <field>
         <name>controllerValue</name>
         <clazz>edu.ucsc.cross.hse.models.network.syncconsensus.NodeState</clazz>
+      </field>
+    </list>
+  </entry>
+  <entry>
+    <java-class>edu.ucsc.cross.hse.model.DataHoldState</java-class>
+    <list>
+      <field>
+        <name>refreshTime</name>
+        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
+      </field>
+      <field>
+        <name>state</name>
+        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
+      </field>
+      <field>
+        <name>doubleState</name>
+        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
+      </field>
+      <field>
+        <name>holdVal</name>
+        <clazz>edu.ucsc.cross.hse.model.DataHoldState</clazz>
       </field>
     </list>
   </entry>
