@@ -2,15 +2,14 @@ package edu.ucsc;
 
 import edu.cross.ucsc.hse.core.chart.HybridChart;
 import edu.cross.ucsc.hse.core.chart.LabelType;
-import edu.ucsc.cross.hse.consensus.sync.SyncNetwork;
 import edu.ucsc.cross.hse.core.container.EnvironmentData;
 import edu.ucsc.cross.hse.core.environment.Environment;
 import edu.ucsc.cross.hse.core.monitor.DataMonitor;
 import edu.ucsc.cross.hse.core.task.TaskManager;
-import edu.ucsc.cross.hse.model.consensus.async.AsyncNetwork;
-import edu.ucsc.cross.hse.model.consensus.async.consensus.AsyncConsensusNetwork;
-import edu.ucsc.cross.hse.model.consensus.async.consensus.active.AsyncConsensusSeqNetwork;
-import edu.ucsc.cross.hse.models.network.syncconsensus.Network;
+import edu.ucsc.cross.hse.model.consensus.async.consensus.AsyncConsistencyNetwork;
+import edu.ucsc.cross.hse.model.consensus.async.consensus.active.SeqConsistencyNetwork;
+import edu.ucsc.cross.hse.model.consensus.asynchronous.AsyncNetworkSystem;
+import edu.ucsc.cross.hse.model.consensus.synchronous.SyncNetworkSystem;
 import java.awt.Font;
 import java.io.File;
 import javafx.stage.FileChooser;
@@ -30,7 +29,8 @@ public class TaskExecutor extends TaskManager
 		// Your tasks go here
 		// runSyncNetwork();
 		// runASyncAgentNetwork();
-		runASyncConsensusNetwork();
+		// runASyncConsensusNetwork();
+		runASyncAgentNetwork();
 		// runASyncSeqConsensusNetwork();
 		// openEnvironmentAndPlot();
 		// SampleAndHoldTasks.signalGeneratorSampleAndHoldSimulation(20.0, .3, .1);
@@ -55,7 +55,7 @@ public class TaskExecutor extends TaskManager
 
 	public void runSyncNetwork()
 	{
-		Network net = Network.generateRandomNetwork(20, .4, .1);
+		SyncNetworkSystem net = SyncNetworkSystem.generateRandomNetwork(20, .4, .1);
 		Environment env = getConfiguredEnvironment();
 		env.add(net);
 		env.add(statesChart());
@@ -64,26 +64,14 @@ public class TaskExecutor extends TaskManager
 		// statesChart().plot(env);
 	}
 
-	public void runSyncAgentNetwork()
-	{
-
-		Environment env = getConfiguredEnvironment();
-		SyncNetwork.generateRandomNetwork(env, 5, .4, .1);
-
-		// env.add(statesChart());
-		env.start(100.0, 1000000);
-		// statesAndTimerChart().plot(env);
-		// statesChart().plot(env);
-	}
-
 	public void runASyncAgentNetwork()
 	{
 
 		Environment env = getConfiguredEnvironment();
-		env.add(AsyncNetwork.generateRandomNetwork(15, .4, .1));
+		env.add(AsyncNetworkSystem.generateRandomNetwork(115, .4, .1, .5, 1.0));
 
 		// env.add(statesChart());
-		env.start(50.0, 1000000);
+		env.start(18.0, 1000000);
 		statesAndTimerChart().plot(env);
 		// statesAndTimerChart().plot(env);
 		statesChart().plot(env);
@@ -93,7 +81,7 @@ public class TaskExecutor extends TaskManager
 	{
 
 		Environment env = getConfiguredEnvironment();
-		env.add(AsyncConsensusNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
+		env.add(AsyncConsistencyNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
 
 		// env.add(statesChart());
 		env.start(50.0, 1000000);
@@ -106,7 +94,7 @@ public class TaskExecutor extends TaskManager
 	{
 
 		Environment env = getConfiguredEnvironment();
-		env.add(AsyncConsensusSeqNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
+		env.add(SeqConsistencyNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
 
 		// env.add(statesChart());
 		env.start(50.0, 1000000);
