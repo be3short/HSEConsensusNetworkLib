@@ -1,2 +1,0 @@
-[06:54:26.831][82/1963][info] Environment Started
-[06:54:26.865][92/1963][info] status: 0.00%  complete : sim time = 0.00 : jumps = 0

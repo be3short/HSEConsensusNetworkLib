@@ -1,3 +1,0 @@
-[06:52:37.813][82/1963][info] Environment Started
-[06:52:37.883][92/1963][info] status: 0.00%  complete : sim time = 0.00 : jumps = 0
-[06:52:42.814][138/1963][info] monitor : NaN% complete : sim time = NaN : jumps = 0

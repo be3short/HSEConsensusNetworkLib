@@ -8,6 +8,8 @@ import edu.ucsc.cross.hse.core.environment.Environment;
 import edu.ucsc.cross.hse.core.monitor.DataMonitor;
 import edu.ucsc.cross.hse.core.task.TaskManager;
 import edu.ucsc.cross.hse.model.consensus.async.AsyncNetwork;
+import edu.ucsc.cross.hse.model.consensus.async.consensus.AsyncConsensusNetwork;
+import edu.ucsc.cross.hse.model.consensus.async.consensus.active.AsyncConsensusSeqNetwork;
 import edu.ucsc.cross.hse.models.network.syncconsensus.Network;
 import java.awt.Font;
 import java.io.File;
@@ -27,7 +29,9 @@ public class TaskExecutor extends TaskManager
 	{
 		// Your tasks go here
 		// runSyncNetwork();
-		runASyncAgentNetwork();
+		// runASyncAgentNetwork();
+		runASyncConsensusNetwork();
+		// runASyncSeqConsensusNetwork();
 		// openEnvironmentAndPlot();
 		// SampleAndHoldTasks.signalGeneratorSampleAndHoldSimulation(20.0, .3, .1);
 	}
@@ -44,6 +48,7 @@ public class TaskExecutor extends TaskManager
 		env.getSettings().getOutputSettings().saveChartsToFile = false;
 		env.getSettings().getOutputSettings().saveEnvironmentToFile = true;
 		env.getSettings().getOutputSettings().saveConfigurationToFile = false;
+		env.getSettings().getFunctionalitySettings().runThreadedOperations = false;
 		// env.getSettings().getOutputSettings().chartFileFormat = ImageFormat.EPS;
 		return env;
 	}
@@ -78,7 +83,33 @@ public class TaskExecutor extends TaskManager
 		env.add(AsyncNetwork.generateRandomNetwork(15, .4, .1));
 
 		// env.add(statesChart());
-		env.start(20.0, 1000000);
+		env.start(50.0, 1000000);
+		statesAndTimerChart().plot(env);
+		// statesAndTimerChart().plot(env);
+		statesChart().plot(env);
+	}
+
+	public void runASyncConsensusNetwork()
+	{
+
+		Environment env = getConfiguredEnvironment();
+		env.add(AsyncConsensusNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
+
+		// env.add(statesChart());
+		env.start(50.0, 1000000);
+		statesAndTimerChart().plot(env);
+		// statesAndTimerChart().plot(env);
+		statesChart().plot(env);
+	}
+
+	public void runASyncSeqConsensusNetwork()
+	{
+
+		Environment env = getConfiguredEnvironment();
+		env.add(AsyncConsensusSeqNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
+
+		// env.add(statesChart());
+		env.start(50.0, 1000000);
 		statesAndTimerChart().plot(env);
 		// statesAndTimerChart().plot(env);
 		statesChart().plot(env);
