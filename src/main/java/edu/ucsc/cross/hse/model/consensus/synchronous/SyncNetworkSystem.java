@@ -80,7 +80,7 @@ public class SyncNetworkSystem extends HybridSystem<SyncNetworkState>
 		{
 			SyncAgentState node = new SyncAgentState(((Math.random() - Math.random()) * state_range),
 			((Math.random() - Math.random()) * controller_range));
-			node.info().setName("N" + i);
+			node.extension().setName("N" + i);
 			nodez.add(node);
 		}
 		NetworkParameters paramz = NetworkParameters.getWattsStrogatzParams(-.4, .3, 0.7, 1.5, nodez.size());

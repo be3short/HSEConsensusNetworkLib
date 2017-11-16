@@ -162,7 +162,7 @@ public class SeqConsistencyNetwork extends HybridSystem<SeqConsistencyNetworkSta
 		{
 			SeqConsistencyAgentState node = new SeqConsistencyAgentState(
 			((Math.random() - Math.random()) * state_range), ((Math.random() - Math.random()) * controller_range), .2);
-			node.info().setName("N" + i);
+			node.extension().setName("N" + i);
 			nodez.add(node);
 		}
 		ConsensusNodeParams paramz = ConsensusNodeParams.getWattsStrogatzParams(-.4, .3, comm_min, comm_max, write_min,

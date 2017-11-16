@@ -1,8 +1,8 @@
 package edu.ucsc.cross.hse.model.consensus.asynchronous;
 
-import edu.ucsc.cross.hse.core.object.Objects;
+import edu.ucsc.cross.hse.core.object.ObjectSet;
 
-public class AsyncAgentState extends Objects
+public class AsyncAgentState extends ObjectSet
 {
 
 	public Double stateValue;

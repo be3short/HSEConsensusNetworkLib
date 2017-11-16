@@ -1,9 +1,9 @@
 package edu.ucsc.cross.hse.model.consensus.synchronous;
 
-import edu.ucsc.cross.hse.core.object.Objects;
+import edu.ucsc.cross.hse.core.object.ObjectSet;
 import java.util.ArrayList;
 
-public class SyncNetworkState extends Objects
+public class SyncNetworkState extends ObjectSet
 {
 
 	public ArrayList<SyncAgentState> nodes;

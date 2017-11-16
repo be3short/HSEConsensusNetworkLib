@@ -1,8 +1,8 @@
 package edu.ucsc.cross.hse.model.consensus.synchronous;
 
-import edu.ucsc.cross.hse.core.object.Objects;
+import edu.ucsc.cross.hse.core.object.ObjectSet;
 
-public class SyncAgentState extends Objects
+public class SyncAgentState extends ObjectSet
 {
 
 	public double stateValue;

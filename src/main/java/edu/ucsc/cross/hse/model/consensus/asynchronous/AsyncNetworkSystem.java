@@ -91,7 +91,7 @@ public class AsyncNetworkSystem extends HybridSystem<AsyncNetworkState>
 		{
 			AsyncAgentState node = new AsyncAgentState(((Math.random() - Math.random()) * state_range),
 			((Math.random() - Math.random()) * controller_range), .2);
-			node.info().setName("N" + i);
+			node.extension().setName("N" + i);
 			nodez.add(node);
 		}
 		NetworkParameters paramz = NetworkParameters.getWattsStrogatzParams(-.4, .3, min_comm_time, max_comm_time,
