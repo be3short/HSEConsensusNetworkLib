@@ -1,13 +1,12 @@
-package edu.ucsc;
+package edu.ucsc.cross.hse.model.consensus;
+
+import java.io.File;
 
 import edu.cross.ucsc.hse.core.chart.ChartConfiguration;
 import edu.ucsc.cross.hse.core.environment.Environment;
 import edu.ucsc.cross.hse.core.task.TaskManager;
-import edu.ucsc.cross.hse.model.consensus.async.consensus.AsyncConsistencyNetwork;
-import edu.ucsc.cross.hse.model.consensus.async.consensus.active.SeqConsistencyNetwork;
-import edu.ucsc.cross.hse.model.consensus.asynchronous.AsyncNetworkSystem;
-import edu.ucsc.cross.hse.model.consensus.synchronous.SyncNetworkSystem;
-import java.io.File;
+import edu.ucsc.cross.hse.model.consensus.graph.GraphGenerator;
+import edu.ucsc.cross.hse.model.consensus.graph.NetworkGraph;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -48,54 +47,34 @@ public class TaskExecutor extends TaskManager
 		return env;
 	}
 
-	public void runSyncNetwork()
-	{
-		SyncNetworkSystem net = SyncNetworkSystem.generateRandomNetwork(20, .4, .1);
-		Environment env = getConfiguredEnvironment();
-		env.add(net);
-		env.add(statesChart());
-		env.start(20.0, 1000000);
-		// statesAndTimerChart().plot(env);
-		// statesChart().plot(env);
-	}
-
 	public void runASyncAgentNetwork()
 	{
 
 		Environment env = getConfiguredEnvironment();
-		env.add(AsyncNetworkSystem.generateRandomNetwork(115, .4, .1, .5, 1.0));
+		// NetworkGraph net = new NetworkGraph();
+		NetworkGraph net = GraphGenerator.generateWattsStrogatzGraph(10, 4, .2);// WattsStrogatz.generateWattsStrogatzGraph(220,
+																				// 4, .2);// new NetworkStructure();
+		// net.addAllVertices(219);
+		// net.addEdge(0, 2);
+		// net.addEdge(0, 2);
+		// net.addEdge(1, 0);
+		// net.addEdge(2, 3);
+		// net.addEdge(2, 1);
+		// net.addEdge(3, 1);
+		// net.addEdge(3, 0);
+		ConsensusParameters params = new ConsensusParameters(.4, .1, .5, 1.0, null);
+		for (int i = 0; i < 10; i++)
+		{
+			AgentState agent = new AgentState(Math.random(), Math.random(), Math.random());
+			AgentSystem system = new AgentSystem(agent, net, params);
+			env.add(system);
+		}
 
 		// env.add(statesChart());
-		env.start(18.0, 100000);
+		env.start(38.0, 100000);
 		statesAndTimerChart().createChart(env);
 		// statesAndTimerChart().plot(env);
-		statesChart().createChart(env);
-	}
-
-	public void runASyncConsensusNetwork()
-	{
-
-		Environment env = getConfiguredEnvironment();
-		env.add(AsyncConsistencyNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
-
-		// env.add(statesChart());
-		env.start(50.0, 100000);
 		statesAndTimerChart().createChart(env);
-		// statesAndTimerChart().plot(env);
-		statesChart().createChart(env);
-	}
-
-	public void runASyncSeqConsensusNetwork()
-	{
-
-		Environment env = getConfiguredEnvironment();
-		env.add(SeqConsistencyNetwork.generateRandomNetwork(15, .4, .1, .8, 1.8, .02, .05));
-
-		// env.add(statesChart());
-		env.start(50.0, 100000);
-		statesAndTimerChart().createChart(env);
-		// statesAndTimerChart().plot(env);
-		statesChart().createChart(env);
 	}
 
 	public void openEnvironmentAndPlot()
@@ -109,7 +88,7 @@ public class TaskExecutor extends TaskManager
 		// env.add(xyCombination());
 
 		// statesAndTimerChart().plot(env);
-		statesChart().createChart(env);
+		statesAndTimerChart().createChart(env);
 	}
 
 	public static ChartConfiguration statesAndTimerChart()
@@ -120,13 +99,12 @@ public class TaskExecutor extends TaskManager
 		// Set layout to generate two horizontal plots with plot 0 on top and plot 1 on the bottom
 		plot.setLayout(new Integer[][]
 		{
-				{ 1, 1, 1, 2, 2 },
-				{ 0, 0, 0, 2, 2 } });
-
-		// Select data to display
-		// * selections should be a string that matches the variable name of the data to be selected
-		// * null is used to select time as the x axis values
-		plot.chartProperties(0).setAxisSelections(null, "stateValue");
+				{ 1, 1, 1 },
+				{ 1, 1, 1 },
+				{ 2, 2, 2 },
+				{ 0, 0, 0 } });
+		plot.setCombinedDomainPlot(true);
+		plot.chartProperties(0).setAxisSelections(null, "systemValue");
 		plot.chartProperties(1).setAxisSelections(null, "controllerValue");
 		plot.chartProperties(2).setAxisSelections(null, "eventTimer");
 
@@ -153,51 +131,6 @@ public class TaskExecutor extends TaskManager
 		// * null is used to indicate no main title
 		// * there is no main title by default so following line can be ommitted if no main title is desired
 		plot.addMainTitle("Signal Generator", null);
-
-		return plot;
-	}
-
-	public static ChartConfiguration statesChart()
-	{
-		// Create a new plot configuration with specified width (600.0) and height (600.0)
-		ChartConfiguration plot = new ChartConfiguration(1000.0, 800.0);
-		// plot.
-		// Set layout to generate two horizontal plots with plot 0 on top and plot 1 on the bottom
-		plot.setLayout(new Integer[][]
-		{
-				{ 1, 1, 1, 2 },
-				{ 0, 0, 0, 2 } });
-
-		// Select data to display
-		// * selections should be a string that matches the variable name of the data to be selected
-		// * null is used to select time as the x axis values
-		plot.chartProperties(0).setAxisSelections(null, "stateValue");
-		plot.chartProperties(1).setAxisSelections(null, "controllerValue");
-		plot.chartProperties(2).setAxisSelections(null, "controllerValue");
-
-		// Select axis labels
-		// * null is used to remove an axis label completely
-		// Chart.EMPTY is used to remove an axis label but keep the space so the sub chart stays alligned with grid
-		plot.chartProperties(0).setAxisLabels("Time (sec)", "X Value");
-		plot.chartProperties(1).setAxisLabels("Time (sec)", "Y Value");
-		plot.chartProperties(2).setAxisLabels(null, null);
-
-		// Specify legend visibility
-		plot.chartProperties(0).setDisplayLegend(false);
-		plot.chartProperties(1).setDisplayLegend(false);
-		plot.chartProperties(2).setDisplayLegend(true);
-
-		// Specify overall title for the plot
-		// * null is used to indicate no sub plot title
-		// * there are no sub plot titles by default so following lines can be ommitted for no sub plot titles
-		plot.chartProperties(0).setTitle(null);
-		plot.chartProperties(1).setTitle(null);
-		plot.chartProperties(2).setTitle(null);
-
-		// Specify overall title for the plot
-		// * null is used to indicate no main title
-		// * there is no main title by default so following line can be ommitted if no main title is desired
-		plot.addMainTitle("Consensus Network", null);
 
 		return plot;
 	}

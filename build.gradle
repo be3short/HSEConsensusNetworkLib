@@ -70,7 +70,7 @@ compile group: 'org.jfree', name: 'jfreesvg', version: '3.2'
     testImplementation 'junit:junit:4.12'
     //compile 'com.github.be3short:DataManagementToolbox:0.1.0'
       // compile 'com.github.be3short:DynamicLogger:-SNAPSHOT'
- compile 'com.github.be3short:HybridSystemsEnvironment:-SNAPSHOT'
+ //compile 'com.github.be3short:HybridSystemsEnvironment:-SNAPSHOT'
    //compile 'com.github.be3short:IOTools:-SNAPSHOT'
 
     //compile 'org.slf4j:slf4j-simple:1.7.21'

@@ -2,12 +2,12 @@ package edu.ucsc.cross.hse.model.consensus.graph;
 
 import org.jgrapht.VertexFactory;
 
-public class WattsStrogtzVertexGenerator implements VertexFactory<Integer>
+public class VertexGenerator implements VertexFactory<Integer>
 {
 
 	Integer vertex = 0;
 
-	public WattsStrogtzVertexGenerator()
+	public VertexGenerator()
 	{
 
 	}
