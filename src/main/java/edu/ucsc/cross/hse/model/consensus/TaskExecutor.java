@@ -4,9 +4,9 @@ import java.io.File;
 
 import edu.cross.ucsc.hse.core.chart.ChartConfiguration;
 import edu.ucsc.cross.hse.core.environment.Environment;
+import edu.ucsc.cross.hse.core.graph.NetworkGraph;
+import edu.ucsc.cross.hse.core.graph.NetworkGraphFactory;
 import edu.ucsc.cross.hse.core.task.TaskManager;
-import edu.ucsc.cross.hse.model.consensus.graph.GraphGenerator;
-import edu.ucsc.cross.hse.model.consensus.graph.NetworkGraph;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -52,8 +52,8 @@ public class TaskExecutor extends TaskManager
 
 		Environment env = getConfiguredEnvironment();
 		// NetworkGraph net = new NetworkGraph();
-		NetworkGraph net = GraphGenerator.generateWattsStrogatzGraph(10, 4, .2);// WattsStrogatz.generateWattsStrogatzGraph(220,
-																				// 4, .2);// new NetworkStructure();
+		NetworkGraph net = NetworkGraphFactory.generateWattsStrogatzGraph(10, 6, .4);// WattsStrogatz.generateWattsStrogatzGraph(220,
+		// 4, .2);// new NetworkStructure();
 		// net.addAllVertices(219);
 		// net.addEdge(0, 2);
 		// net.addEdge(0, 2);

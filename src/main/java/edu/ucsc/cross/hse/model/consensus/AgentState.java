@@ -11,7 +11,7 @@ public class AgentState extends ObjectSet
 
 	public AgentState(double system_value, double controller_value, double timer_value)
 	{
-		this.extension().setName("Agent");
+		this.data().setName("Agent");
 		this.systemValue = system_value;
 		this.controllerValue = controller_value;
 		this.communicationTimer = timer_value;
