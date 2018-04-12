@@ -1,24 +1,61 @@
 package edu.ucsc.cross.hse.model.consensus;
 
-import Jama.Matrix;
-
+/**
+ * Consensus network parameter data structure
+ * 
+ * @author Brendan Short
+ *
+ */
 public class ConsensusParameters
 {
 
+	/**
+	 * Flow gain constant for the control law
+	 */
 	public Double flowGain;
-	public Double jumpGain;
-	public Double minimumCommunicationInterval;
-	public Double maximumCommunicationInterval;
-	public Matrix laplacian;
 
+	/**
+	 * Jump gain constant for the control law
+	 */
+	public Double jumpGain;
+
+	/**
+	 * Minimum duration between communication events
+	 */
+	public Double minimumCommunicationInterval;
+
+	/**
+	 * Maximum duration between communication events
+	 */
+	public Double maximumCommunicationInterval;
+
+	/**
+	 * Flag indicating if the agents are communication synchronously (true) or
+	 * asynchrnouosly (false)
+	 */
+	public boolean synchronous;
+
+	/**
+	 * Constructor for consensus network parameters
+	 * 
+	 * @param flow_gain
+	 *            flow gain constant for the control law
+	 * @param jump_gain
+	 *            jump gain constant for the control law
+	 * @param minimum_comm
+	 *            minimum duration between communication events
+	 * @param maximum_comm
+	 *            maximum duration between communication events
+	 * @param synchronous
+	 */
 	public ConsensusParameters(Double flow_gain, Double jump_gain, Double minimum_comm, Double maximum_comm,
-	Matrix laplacian)
+	boolean synchronous)
 	{
 		this.flowGain = flow_gain;
 		this.jumpGain = jump_gain;
 		this.minimumCommunicationInterval = minimum_comm;
 		this.maximumCommunicationInterval = maximum_comm;
-		this.laplacian = laplacian;
+		this.synchronous = synchronous;
 	}
 
 }
